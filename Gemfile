@@ -18,13 +18,13 @@ gem 'web-console', '~> 2.0'
 gem 'spring'
 
 # learn-rails
-gem 'foundation-rails'
+gem 'foundation-rails' # Zurb
 gem 'gibbon'
 gem 'high_voltage'
 gem 'simple_form'
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
-  gem 'rails_layout'
+  gem 'rails_layout' # Layout
 end
 
