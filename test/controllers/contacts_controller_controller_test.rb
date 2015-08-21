@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class ContactsControllerControllerTest < ActionController::TestCase
-  test "should get process_form" do
-    get :process_form
+  test "should get new" do
+    get :new
     assert_response :success
   end
 
