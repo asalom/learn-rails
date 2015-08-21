@@ -55,7 +55,9 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  resources :contacts, only: [:new, :create]
+
+  # path: :contact,
+  resources :contacts, only: [:new, :create], path: :contact
   root to: 'visitors#new'
   #match '/:id' => 'high_voltage/pages#show', :as => :static, :via => :get # removes pages from high voltage URLs
 end
