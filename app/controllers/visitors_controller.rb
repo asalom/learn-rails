@@ -6,8 +6,13 @@ class VisitorsController < ApplicationController
   def create
     @visitor = Visitor.new(secure_params)
     if @visitor.valid?
-      @visitor.subscribe
-      flash[:notice] = "Signed up #{@visitor.email}."
+      result = @visitor.subscribe
+      Rails.logger.debug "result #{result}"
+      if result
+        flash[:error] = result
+      else
+        flash[:notice] = "Signed up #{@visitor.email}."
+      end
       redirect_to root_path
     else
       render :new
