@@ -1,11 +1,21 @@
 class VisitorsController < ApplicationController
   def new
-    @owner = Owner.new
-    if params[:hola] then
-      flash.now[:notice] = "This is a notice!"
-      flash.now[:alert] = "This is an alert"
-      flash.now[:warning] = "This is an warning"
+    @visitor = Visitor.new
+  end
+
+  def create
+    @visitor = Visitor.new(secure_params)
+    if @visitor.valid?
+      @visitor.subscribe
+      flash[:notice] = "Signed up #{@visitor.email}."
+      redirect_to root_path
+    else
+      render :new
     end
-    # render 'visitors/new' # -> Implemented in superclass
+  end
+
+  private
+  def secure_params
+    params.require(:visitor).permit(:email)
   end
 end

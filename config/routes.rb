@@ -58,6 +58,7 @@ Rails.application.routes.draw do
 
   # path: :contact,
   resources :contacts, only: [:new, :create], path: :contact
+  resources :visitors, only: [:new, :create]
   root to: 'visitors#new'
   #match '/:id' => 'high_voltage/pages#show', :as => :static, :via => :get # removes pages from high voltage URLs
 end
