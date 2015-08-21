@@ -8,7 +8,7 @@ class VisitorsController < ApplicationController
     if @visitor.valid?
       result = @visitor.subscribe
       Rails.logger.debug "result #{result}"
-      if result
+      if result.is_a? String
         flash[:error] = result
       else
         flash[:notice] = "Signed up #{@visitor.email}."
